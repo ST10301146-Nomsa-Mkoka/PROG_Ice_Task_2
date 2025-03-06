@@ -26,7 +26,7 @@ namespace PROG_Ice_Task_2
                 Console.WriteLine("(3) WAV 3"); //when user enters 3 wav file 3 will play
                 Console.WriteLine("(4) Enter 4 to exit the program");
                 Console.WriteLine("Please input the number of your choice");
-
+                Console.WriteLine();
 
                 int decision = int.Parse(Console.ReadLine()); //name of switch choice wich will be what the user will 
 
