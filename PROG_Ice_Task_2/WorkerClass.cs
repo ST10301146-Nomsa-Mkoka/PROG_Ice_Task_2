@@ -10,6 +10,7 @@ namespace PROG_Ice_Task_2
 {
     class WorkerClass
     {
+        private bool[] playedOptions = new bool[3]; //array of boolean values that will be used to keep track of which songs have been played
         public WorkerClass() 
         {
         }
@@ -21,9 +22,16 @@ namespace PROG_Ice_Task_2
                 Console.WriteLine("User's WAV's file:");
                 Console.WriteLine("********************");
                 Console.WriteLine("Please select which audio you would like to play:");//will provide the user with a menu
-                Console.WriteLine("(1) WAV 1"); //when user enters 1 wav file 1 will play
-                Console.WriteLine("(2) WAV 2"); //when user enters 2 wav file 2 will play
-                Console.WriteLine("(3) WAV 3"); //when user enters 3 wav file 3 will play
+                for (int i = 0; i < 3; i++)
+                {
+                    if (playedOptions[i])
+                    { 
+                       Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    Console.WriteLine($"({i +1}) WAV {i + 1}");
+                    Console.ResetColor();
+                
+                }
                 Console.WriteLine("(4) Enter 4 to exit the program");
                 Console.WriteLine("Please input the number of your choice");
                 Console.WriteLine();
@@ -34,15 +42,15 @@ namespace PROG_Ice_Task_2
                 {
                     case 1:
                         PlaySong1();
-                        Console.ReadLine();
+                        playedOptions[0] = true;
                         break;
                     case 2:
                         PlaySong2();
-                        Console.ReadLine();
+                        playedOptions[1] = true;
                         break;
                     case 3:
                         PlaySong3();
-                        Console.ReadLine();
+                        playedOptions[2] = true;
                         break;
                     case 4:
                         Environment.Exit(0);//will exit the program
@@ -60,13 +68,13 @@ namespace PROG_Ice_Task_2
             {
                 Console.WriteLine($"File found at: {songsFilePath}");
                 SoundPlayer player = new SoundPlayer(songsFilePath);
-                Console.BackgroundColor = ConsoleColor.Green;
                 player.PlaySync();
             }
             else
             {
                 Console.WriteLine($"File not found: {songsFilePath}");
             }
+
         }
 
         public void PlaySong2()
@@ -78,7 +86,6 @@ namespace PROG_Ice_Task_2
             {
                 Console.WriteLine($"File found at: {songsFilePath}");
                 SoundPlayer player = new SoundPlayer(songsFilePath);
-                Console.BackgroundColor = ConsoleColor.Green;
                 player.PlaySync();
             }
             else
@@ -96,7 +103,6 @@ namespace PROG_Ice_Task_2
             {
                 Console.WriteLine($"File found at: {songsFilePath}");
                 SoundPlayer player = new SoundPlayer(songsFilePath);
-                
                 player.PlaySync();
             }
             else
