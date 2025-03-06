@@ -60,6 +60,7 @@ namespace PROG_Ice_Task_2
             {
                 Console.WriteLine($"File found at: {songsFilePath}");
                 SoundPlayer player = new SoundPlayer(songsFilePath);
+                Console.BackgroundColor = ConsoleColor.Green;
                 player.PlaySync();
             }
             else
@@ -77,6 +78,7 @@ namespace PROG_Ice_Task_2
             {
                 Console.WriteLine($"File found at: {songsFilePath}");
                 SoundPlayer player = new SoundPlayer(songsFilePath);
+                Console.BackgroundColor = ConsoleColor.Green;
                 player.PlaySync();
             }
             else
@@ -94,6 +96,7 @@ namespace PROG_Ice_Task_2
             {
                 Console.WriteLine($"File found at: {songsFilePath}");
                 SoundPlayer player = new SoundPlayer(songsFilePath);
+                
                 player.PlaySync();
             }
             else
@@ -102,6 +105,11 @@ namespace PROG_Ice_Task_2
             }
         }
 
+       /* public void changeColor()
+        {
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.White;
+        */
 
 
 
